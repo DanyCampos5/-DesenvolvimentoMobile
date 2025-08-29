@@ -5,7 +5,9 @@ const DATA = [
     {id: 2, nome:"Banana"},
     {id: 3, nome:"Abacaxi"}, 
     {id: 4, nome:"Laranja"}, 
-    {id: 5, nome:"Maça"}
+    {id: 5, nome:"Maça"},
+    {id: 6, nome:"Uva"}
+    
 ];
 
 export default function Home2(){
@@ -15,7 +17,7 @@ export default function Home2(){
             <FlatList
                 data={DATA}
                 renderItem={({item}) => <Text>{item.nome}</Text>}
-                keyExtractor={({item}) => item.id}
+                keyExtractor={(item) => item.id}
             />
         </View>
     )
