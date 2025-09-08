@@ -1,14 +1,16 @@
 import { SafeAreaView, Text, StyleSheet } from "react-native";
-import ListaCarros from "../components/ListaCarros";
+import ListaCarros from '../components/ListaCarros';
+import Pessoas from "../components/Pessoas";
 
 export default function Home(){
 
     return(
         <SafeAreaView style={Estilo.container}>
             <Text style={Estilo.labelPrincipal}>
-                Pagina Home
+                Pagina HOME
             </Text>
             <ListaCarros />
+            <Pessoas />
         </SafeAreaView>
     )
 }
@@ -16,7 +18,7 @@ export default function Home(){
 const Estilo = StyleSheet.create({
     container: {
         flex: 1,
-        justfyContent: 'çenter',
+        justifyContent: 'center',
         alignItems: 'center'
     },
     labelPrincipal: {

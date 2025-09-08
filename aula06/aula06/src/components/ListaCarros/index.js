@@ -1,29 +1,24 @@
-import { View,StyleSheet, FlatList, Text } from "react-native";
+import { View, StyleSheet, FlatList, Text } from "react-native";
+import {CARROS} from '../../data/carros';
 
-const DADOS = [
-    { id: "1", marca: "Ford", modelo: "Fusion", ano: "2010"},
-    { id: "2", marca: "Honda", modelo: "Civic", ano: "1998"},
-    { id: "3", marca: "Toyota", modelo: "Corolla", ano: "1998"},
-    { id: "4", marca: "BYD", modelo: "Seal", ano: "2025"},
-    { id: "5", marca: "Miura", modelo: "X8", ano: "1989"}  
-]
+const DADOS2 = [];
 
-const Item = ({marca, modelo, ano}) => (
+const Item = ({dado}) => (
     <View style={Estilo.items}>
-      <Text style={Estilo.title}>{marca}</Text>  
-      <Text style={Estilo.detail}>{modelo}</Text>          
+        <Text style={Estilo.title}>{dado?.marca}</Text>
+        <Text style={Estilo.detail}>{dado?.modelo}</Text>
     </View>
 )
 
-
 export default function ListaCarros(){
-
     return(
         <View style={Estilo.container}>
-            <FlatList
-                data={DADOS}
+            <FlatList 
+                data={CARROS}
                 keyExtractor={(item) => item.id}
-                renderItem={({item}) => <Item marca={item.marca} modelo={item.modelo} ano={item.ano}/>}
+                renderItem={({item}) => <Item dado={item} />}
+
+                ListEmptyComponent={<Text>Não existem elementos na lista.</Text>}
             />
         </View>
     )
@@ -36,13 +31,13 @@ const Estilo = StyleSheet.create({
     items: {
         backgroundColor: "#f5f5f5",
         padding: 12,
-        borderRadius: 8
+        borderRadius: 8,
+        marginBottom: 8
     },
     title: {
         fontWeight: '600',
         marginBottom: 4,
-        fontSize: 22,
-        marginBottom: 8
+        fontSize: 22
     },
     detail: {
         fontWeight: '300',
